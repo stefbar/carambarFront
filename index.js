@@ -11,11 +11,11 @@ function getRandomJoke() {
 document.getElementById("getRandomJoke-btn").addEventListener('click',
 () => getRandomJoke())
 
-function getAllJokes() {
-    fetch("https://api-carambarjokes.onrender.com/api.carambarJokes/v1.0.0/jokes")
-    .then(response => response.json())
-    .then(data => {
-        console.log('data: ', data);
-    })
-}
-document.getElementById("getAllJokes-btn").addEventListener('click', getAllJokes)
+// function getAllJokes() {
+//     fetch("https://api-carambarjokes.onrender.com/api.carambarJokes/v1.0.0/jokes")
+//     .then(response => response.json())
+//     .then(data => {
+//         console.log('data: ', data);
+//     })
+// }
+// document.getElementById("getAllJokes-btn").addEventListener('click', getAllJokes)
