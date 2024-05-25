@@ -4,6 +4,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
 
+/* RESET */
+
 *,
 *::before,
 *::after {
@@ -12,12 +14,25 @@
 * {
   margin: 0;
 }
+html, body {
+  margin:0;
+  padding:0;
+  max-width: 100%;
+  height:100%;
+  overflow-x: hidden;
+}
 body {
-  line-height: 1.5;
+  /* line-height: 1.5; */
   -webkit-font-smoothing: antialiased;
 }
-img {
-  max-width: 100%; /* do not display:block for img! */
+a {
+  color: #411c0a;
+  text-decoration: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+/* img {
+  max-width: 100%;
 }
 picture,
 video,
@@ -25,7 +40,7 @@ canvas,
 svg {
   display: block;
   max-width: 100%;
-}
+} */
 input,
 button,
 textarea,
@@ -41,39 +56,114 @@ h5,
 h6 {
   overflow-wrap: break-word;
 }
-#root,
-#__next {
-  isolation: isolate;
+/* END RESET */
+
+.global-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .header {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  z-index: 20;
   width: 100%;
+  text-align: center;
+  transform: translate(-50%, 0);
+  transition: transform .4s;
 }
-
-.header a {
+.header-image-container {
+  display: block;
+  position: relative;
+  width: 290px;
+  height: 72px;
+  margin: 10px auto 25px;
+  z-index: 12;
+}
+.header-image-container a {
+  display: block;
   position: absolute;
   top: 0;
-  transform: scale(0.8);
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
 }
 
 .main-content {
+  flex: 1;
+  /* display: block;
   align-items: center;
-  justify-content: center;
-  width: 100%;
+  justify-content: center; */
+  /* width: 100%;
+  height: auto; */
+  /* min-height: calc(100vh - 293px); */
+  /* overflow: auto; */
 }
 
+.hero {
+  display: block;
+  position: relative;
+  z-index: 0;
+  /* width: 100%; */
+  width: 160%;
+  height: 316px;
+  margin-left: -30%;
+  border-bottom-left-radius: 50% 100px;
+  border-bottom-right-radius: 50% 100px;
+  text-align: center;
+  overflow: hidden;
+  color: #fdee04;
+}
+.hero::before {
+  position: absolute;
+  top: 0;
+  right: 50%;
+  margin-right: 316px;
+  /* margin-right: 798px; */
+  width: 100%;
+  height: 100%;
+  content: ' ';
+  color: #fdee04;
+}
+.hero::after {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: 316px;
+  /* margin-left: 798px; */
+  width: 100%;
+  height: 100%;
+  content: ' ';
+  color: #fdee04;
+}
+.hero-img-container {
+  position: relative;
+    z-index: 3;
+    /* width: 1600px; */
+    /* max-width: 100vw; */
+    margin: 0 auto;
+    font-size: 0;
+    padding-top: 265px;
+}
 .hero img {
+  position: absolute;
+  top: 0;
+  left: 50%;
   width: 100%;
   height: auto;
+  border: 0;
+  transform: translate(-50%, 0);
+  transition: opacity .3s;
 }
 
 .marque-head {
   width: 100%;
   margin: auto;
+  text-align: center;
 }
 .marque-title {
   font-family: "Poppins", sans-serif;
@@ -87,7 +177,7 @@ h6 {
 .marque-head h2 {
   font-family: "Pacifico", sans-serif;
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 2rem;
   line-height: 3rem;
   font-weight: normal;
   transform: rotate(-4deg);
@@ -95,7 +185,7 @@ h6 {
 }
 
 .marque-head svg {
-  margin: 0.5em auto;
+  margin: 0.5rem auto;
   text-align: center;
   font-size: 2.5rem;
   font-weight: normal;
@@ -104,11 +194,12 @@ h6 {
 /* jokes */
 .random-joke {
   margin: 1em auto;
-  padding-bottom: 2em;
+  padding-bottom: 2rem;
   width: 100%;
 }
 .dbOutput {
-  margin: 1em auto;
+  margin: 1rem auto;
+  padding: 1rem;
   text-align: center;
 }
 .random-joke .cta {
@@ -116,9 +207,9 @@ h6 {
   text-align: center;
 }
 .random-joke .cta button {
-  padding: 0.5em 1em;
+  padding: 0.5rem 1rem;
   border: #e62c1c solid 1px;
-  border-radius: 2em;
+  border-radius: 2rem;
   font-family: "Poppins", sans-serif;
   font-size: 1.25rem;
   font-weight: 500;
@@ -139,27 +230,23 @@ h6 {
   padding-bottom: 0;
   z-index: 8;
   width: 100%;
-  height: auto;
-  min-height: 0;
+  height: 100%;
   text-align: center;
+  /* overflow: hidden; */
 }
 
-.WaveBg {
+/* .WaveBg {
   position: absolute;
   width: 100%;
   height: 100%;
   margin-left: 0;
   left: 0;
-}
+} */
 
 .yellowWavyBg {
   display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
-  overflow: hidden;
+  height: 692px;
   color: #f9e600;
 }
 
@@ -180,9 +267,9 @@ h6 {
 
 .floating-carambarLayered {
   position: absolute;
-  width: 225px;
+  width: 330px;
   top: -45px;
-  left: 50%;
+  left: 60%;
   margin-left: -90px;
   white-space: nowrap;
   text-align: center;
@@ -251,6 +338,7 @@ h6 {
 
 /* footer */
 .footer {
+  clear: both;
   position: relative;
   width: 100%;
   padding-top: 5em;
@@ -260,7 +348,7 @@ h6 {
 .footer-bulle {
   position: absolute;
   top: -4%;
-  left: 43%;
+  left: 10%;
   width: 40px;
   height: 30px;
   margin-left: 0;
@@ -315,125 +403,49 @@ h6 {
 }
 
 /* media queries */
-@media (max-width: 760px) {
-  .beautyful {
-    position: relative;
-    margin-bottom: 25px;
-    padding-bottom: 0;
-    z-index: 8;
-    width: 100%;
-    height: auto;
-    min-height: 0;
-    text-align: center;
-  }
-  
-  .WaveBg {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    margin-left: 0;
-    left: 0;
-  }
-  
-  .yellowWavyBg {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    color: #f9e600;
-  }
-  
-  .beautyful .bubbles1,
-  .beautyful .bubbles2 {
-    display: none;
-  }
-  
-  .floating-carambarLayered {
-    position: absolute;
-    width: 225px;
-    top: -45px;
-    left: 50%;
-    margin-left: -90px;
-    white-space: nowrap;
-    text-align: center;
-    font-size: 0;
-    opacity: 1;
-    transform: translate(0, 0);
-    transition: opacity 1s, transform 1s;
-    pointer-events: none;
-  }
-  .floating-carambarLayered img {
-    width: 100%;
-    height: auto;
-    vertical-align: middle;
-    margin-left: -1px;
-    border: 0;
-    transition: opacity .3s;
-  }
-  
-  .floating-carambarStandup {
-    position: absolute;
-    width: 200px;
-    height: 390px;
-    top: 104px;
-    margin-left: -800px;
-    left: 50%;
-    white-space: nowrap;
-    text-align: center;
-    font-size: 0;
-    opacity: 1;
-    transform: translate(0, 0);
-    transition: opacity 1s, transform 1s;
-    pointer-events: none;
-  }
-  .floating-carambarStandup img {
-    width: 100%;
-    height: auto;
-    vertical-align: middle;
-    margin-left: -1px;
-    border: 0;
-    transition: opacity .3s;
-  }
-  
-  .floating-fireworks {
-    position: absolute;
-    width: 200px;
-    height: 240px;
-    top: 118px;
-    margin-left: 600px;
-    left: 50%;
-    white-space: nowrap;
-    text-align: center;
-    font-size: 0;
-    opacity: 1;
-    transform: translate(0, 0);
-    transition: opacity 1s, transform 1s;
-    pointer-events: none;
-  }
-  .floating-fireworks img {
-    width: 100%;
-    height: auto;
-    vertical-align: middle;
-    margin-left: -1px;
-    border: 0;
-    transition: opacity .3s;
-  }
-}
+/* Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) { ... }
 
-@media (max-width: 1280px) {
-  .beautyful {
+Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { ... }
+
+Large devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+
+X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }
+
+XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px) { ... } */
+
+/* @media (min-width: 576px) */
+@media (min-width: 576px) {
+  .header-image-container {
     position: relative;
-    margin-bottom: 25px;
-    padding-bottom: 0;
-    z-index: 8;
-    width: 100%;
-    height: auto;
-    min-height: 0;
-    text-align: center;
+    margin-top: 14px;
+    z-index: 10;
+    transform: translate(0, 0);
+    transition: transform .3s;
+    transform: scale(0.7);
+    transform-origin: top center;
+    left: 0;
+    top: -8px;
   }
+  .hero {
+    height: 316px;
+  }
+  .hero-img-container {
+    height: 100%;
+    padding-top: 70px;
+  }
+  .hero img {
+    width: auto;
+    height: 100%;
+  }
+
+  /* .beautyful {
+    min-height: 0;
+  } */
   
   .WaveBg {
     position: absolute;
@@ -445,9 +457,6 @@ h6 {
   
   .yellowWavyBg {
     display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     overflow: hidden;
@@ -465,76 +474,6 @@ h6 {
     margin-left: 0;
   }
   
-  .floating-carambarLayered {
-    position: absolute;
-    width: 225px;
-    top: -45px;
-    left: 50%;
-    margin-left: -90px;
-    white-space: nowrap;
-    text-align: center;
-    font-size: 0;
-    opacity: 1;
-    transform: translate(0, 0);
-    transition: opacity 1s, transform 1s;
-    pointer-events: none;
-  }
-  .floating-carambarLayered img {
-    width: 100%;
-    height: auto;
-    vertical-align: middle;
-    margin-left: -1px;
-    border: 0;
-    transition: opacity .3s;
-  }
-  
-  .floating-carambarStandup {
-    position: absolute;
-    width: 200px;
-    height: 390px;
-    top: 104px;
-    margin-left: -800px;
-    left: 50%;
-    white-space: nowrap;
-    text-align: center;
-    font-size: 0;
-    opacity: 1;
-    transform: translate(0, 0);
-    transition: opacity 1s, transform 1s;
-    pointer-events: none;
-  }
-  .floating-carambarStandup img {
-    width: 100%;
-    height: auto;
-    vertical-align: middle;
-    margin-left: -1px;
-    border: 0;
-    transition: opacity .3s;
-  }
-  
-  .floating-fireworks {
-    position: absolute;
-    width: 200px;
-    height: 240px;
-    top: 118px;
-    margin-left: 600px;
-    left: 50%;
-    white-space: nowrap;
-    text-align: center;
-    font-size: 0;
-    opacity: 1;
-    transform: translate(0, 0);
-    transition: opacity 1s, transform 1s;
-    pointer-events: none;
-  }
-  .floating-fireworks img {
-    width: 100%;
-    height: auto;
-    vertical-align: middle;
-    margin-left: -1px;
-    border: 0;
-    transition: opacity .3s;
-  }
   svg.bubbles {
       left: 43%;
       bottom: 9%;
@@ -542,7 +481,39 @@ h6 {
   }
 }
 
-@media (max-width: 1600px) {
+/* @media (min-width: 768px) */
+@media (min-width: 768px) {
+  .header-image-container {
+    left: 0;
+    top: -8px;
+    margin: 8px auto 18px;
+    transform: scale(0.7);
+    transform-origin: top center;
+  }
+  .hero {
+    height: 270px;
+  }
+  .hero-img-container {
+    padding-top: 0;
+    padding-bottom: 0;
+    height: auto;
+  }
+  .hero img {
+    position: absolute;
+    left: 50%;
+    width: auto;
+    height: 270px;
+    margin-left: 0;
+    transform: translate(-50%, 0);
+  }
+}
+
+
+/* @media (min-width: 992px) */
+/* @media (max-width: 992px) {
+} */
+/* @media (min-width: 1200px) */
+/* @media (max-width: 1200px) {
   .beautyful {
     position: relative;
     margin-bottom: 25px;
@@ -579,75 +550,4 @@ h6 {
     height: auto;
     overflow: hidden;
   }
-  
-  .floating-carambarLayered {
-    position: absolute;
-    width: 225px;
-    top: -45px;
-    left: 50%;
-    margin-left: -90px;
-    white-space: nowrap;
-    text-align: center;
-    font-size: 0;
-    opacity: 1;
-    transform: translate(0, 0);
-    transition: opacity 1s, transform 1s;
-    pointer-events: none;
-  }
-  .floating-carambarLayered img {
-    width: 100%;
-    height: auto;
-    vertical-align: middle;
-    margin-left: -1px;
-    border: 0;
-    transition: opacity .3s;
-  }
-  
-  .floating-carambarStandup {
-    position: absolute;
-    width: 200px;
-    height: 390px;
-    top: 104px;
-    margin-left: -800px;
-    left: 50%;
-    white-space: nowrap;
-    text-align: center;
-    font-size: 0;
-    opacity: 1;
-    transform: translate(0, 0);
-    transition: opacity 1s, transform 1s;
-    pointer-events: none;
-  }
-  .floating-carambarStandup img {
-    width: 100%;
-    height: auto;
-    vertical-align: middle;
-    margin-left: -1px;
-    border: 0;
-    transition: opacity .3s;
-  }
-  
-  .floating-fireworks {
-    position: absolute;
-    width: 200px;
-    height: 240px;
-    top: 118px;
-    margin-left: 600px;
-    left: 50%;
-    white-space: nowrap;
-    text-align: center;
-    font-size: 0;
-    opacity: 1;
-    transform: translate(0, 0);
-    transition: opacity 1s, transform 1s;
-    pointer-events: none;
-  }
-  .floating-fireworks img {
-    width: 100%;
-    height: auto;
-    vertical-align: middle;
-    margin-left: -1px;
-    border: 0;
-    transition: opacity .3s;
-  }
-}
+} */
