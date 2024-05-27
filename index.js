@@ -1,16 +1,21 @@
 const scrollUp = "scroll-up";
 const scrollDown = "scroll-down";
 const logoCarambar = document.getElementById("header-carambar-logo");
+const header = document.getElementById("header");
+const heroImage = document.querySelector(".hero-img");
 
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 0) {
-    document.querySelector(".header").classList.add(scrollDown);
-    // logoCarambar.style.opacity = 0;
+window.addEventListener("scroll", (event) => {
+  if (document.body.scrollTop > 10) {
+    // console.log(header.offsetTop);
+    // console.log(heroImage.offsetTop);
+    // console.log(document.body.scrollTop);
+    header.style.top = "-100px";
+  // logoCarambar.style.opacity = 0;
   } else {
-    document.querySelector(".header").classList.remove(scrollDown);
+    header.style.top = "0";
     // logoCarambar.style.opacity = 1;
   }
-});
+}, true);
 
 function getRandomJoke() {
     fetch("https://api-carambarjokes.onrender.com/api.carambarJokes/v1.0.0/random-joke/:randomId")
