@@ -1,19 +1,9 @@
-const scrollUp = "scroll-up";
-const scrollDown = "scroll-down";
-const logoCarambar = document.getElementById("header-carambar-logo");
-const header = document.getElementById("header");
-const heroImage = document.querySelector(".hero-img");
-
+const header = document.querySelector("header");
 window.addEventListener("scroll", (event) => {
   if (document.body.scrollTop > 10) {
-    // console.log(header.offsetTop);
-    // console.log(heroImage.offsetTop);
-    // console.log(document.body.scrollTop);
     header.style.top = "-100px";
-  // logoCarambar.style.opacity = 0;
   } else {
     header.style.top = "0";
-    // logoCarambar.style.opacity = 1;
   }
 }, true);
 
@@ -23,7 +13,10 @@ function getRandomJoke() {
     .then(data => {
         // document.getElementById("getJokeId").innerHTML = data.id;
         document.getElementById("getJoke").innerHTML = data.joke
-        document.getElementById("getJokeAnswer").innerHTML = data.answer
+        document.getElementById("getJokeAnswer").innerHTML = ""
+        setTimeout(() => {
+          document.getElementById("getJokeAnswer").innerHTML = data.answer
+        }, 4000)
         // document.getElementById("getJokeCategory").innerHTML = data.category_id;
     })
 }

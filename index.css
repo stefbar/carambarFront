@@ -5,7 +5,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
 
 /* RESET */
-
 *,
 *::before,
 *::after {
@@ -13,19 +12,16 @@
 }
 * {
   margin: 0;
+  padding:0;
+  box-sizing: border-box;
 }
 html, body {
-  margin:0;
-  padding:0;
-  width: 100vw;
-  max-width: 100%;
-  overflow-x: hidden;
   height:100%;
+  overflow-x: hidden;
 }
 body {
-  /* line-height: 1.5; */
   -webkit-font-smoothing: antialiased;
-  /* overflow-x: hidden; */
+  min-height: 100vh;
 }
 a {
   color: #411c0a;
@@ -66,35 +62,6 @@ h6 {
   min-height: 100vh;
 }
 
-/* .header {
-  display: block;
-  position: fixed;
-  top: 0;
-  left: 50%;
-  z-index: 20;
-  width: 100%;
-  text-align: center;
-  opacity: 1;
-  transform: translate(-50%, 0);
-  transition: transform .4s;
-} */
-/* .header-image-container {
-  display: block;
-  position: relative;
-  width: 290px;
-  height: 72px;
-  margin: 10px auto 25px;
-  z-index: 12;
-} */
-/* .header-image-container a {
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 10;
-} */
 header {
   position: fixed;
   top: 0;
@@ -103,109 +70,42 @@ header {
   padding: 10px;
   text-align: center;
   transition: top 0.5s;
+  
 }
 header a {
   width: 100%;
   height: 100%;
 }
 header a img {
-  width: 60%;
-  /* opacity: 1; */
-  /* height: auto; */
-  
+  width: 200px;  
 }
 
-.scroll-down {
-  top: -50px;
-  transition: top 0.5s;
-}
-
-.scroll-up {
-  top: 0;
-  transition: top 0.5s;
-}
-
-.logo-quit {
-  opacity: 0;
-  /* transform: scale(.1), translate(100px, 0); */
-}
-/* @media (prefers-reduced-motion: no-preference) {
-  .header-image-container {
-    transition: opacity 1.5s ease, transform 1.5s ease;
-  }
-} */
-
-
-.main-content {
+main {
   flex: 1;
-  /* display: block;
-  align-items: center;
-  justify-content: center; */
-  /* width: 100%;
-  height: auto; */
-  /* min-height: calc(100vh - 293px); */
-  /* overflow: auto; */
 }
 
 .hero {
-  display: block;
   position: relative;
-  z-index: 0;
-  /* width: 100%; */
-  width: 160%;
-  height: 316px;
-  margin-left: -30%;
-  border-bottom-left-radius: 50% 100px;
-  border-bottom-right-radius: 50% 100px;
-  text-align: center;
-  overflow: hidden;
-  color: #fdee04;
+  z-index: 3;
+  width: 150%;
+  margin-left: -25%;
 }
-.hero::before {
-  position: absolute;
-  top: 0;
-  right: 50%;
-  margin-right: 316px;
-  /* margin-right: 798px; */
-  width: 100%;
-  height: 100%;
-  content: ' ';
-  color: #fdee04;
+.hero-img {
+  padding-top: 2rem;
+  width: 60%;
+  height: auto;
+  transform: translate(40%);
 }
-.hero::after {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  margin-left: 316px;
-  /* margin-left: 798px; */
-  width: 100%;
-  height: 100%;
-  content: ' ';
-  color: #fdee04;
-}
-.hero-img-container {
-  position: relative;
-    z-index: 3;
-    /* width: 1600px; */
-    /* max-width: 100vw; */
-    margin: 0 auto;
-    font-size: 0;
-    padding-top: 265px;
-}
-.hero img {
-  position: absolute;
-  top: 0;
-  left: 50%;
+.hero-img-mask {
   width: 100%;
   height: auto;
-  border: 0;
-  transform: translate(-50%, 0);
-  transition: opacity .3s;
+  clip-path: ellipse(80% 95% at 50% 0%);
+  background-color: #fdee04;
 }
 
 .marque-head {
   width: 100%;
-  margin: auto;
+  margin: 1rem auto 0;
   text-align: center;
 }
 .marque-title {
@@ -226,7 +126,6 @@ header a img {
   transform: rotate(-4deg);
   transform-origin: center;
 }
-
 .marque-head svg {
   margin: 0.5rem auto;
   text-align: center;
@@ -244,6 +143,9 @@ header a img {
   margin: 1rem auto;
   padding: 1rem;
   text-align: center;
+}
+#getJokeAnswer {
+  margin-top: 1rem;
 }
 .random-joke .cta {
   margin: auto;
@@ -275,16 +177,7 @@ header a img {
   width: 100%;
   height: 100%;
   text-align: center;
-  /* overflow: hidden; */
 }
-
-/* .WaveBg {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  margin-left: 0;
-  left: 0;
-} */
 
 .yellowWavyBg {
   display: block;
@@ -310,20 +203,16 @@ header a img {
 
 .floating-carambarLayered {
   position: absolute;
-  width: 330px;
+  width: 100%;
   top: -45px;
-  left: 60%;
-  margin-left: -90px;
-  white-space: nowrap;
-  text-align: center;
-  font-size: 0;
+  left: 10%;
   opacity: 1;
   transform: translate(0, 0);
   transition: opacity 1s, transform 1s;
   pointer-events: none;
 }
 .floating-carambarLayered img {
-  width: 100%;
+  width: 250px;
   height: auto;
   vertical-align: middle;
   margin-left: -1px;
@@ -426,7 +315,7 @@ header a img {
   cursor: pointer;
 }
 .footer-logo a img {
-  width: 18rem;
+  width: 16rem;
   margin: 0 auto 2rem;
   vertical-align: bottom;
   border: 0;
@@ -434,7 +323,6 @@ header a img {
   transition: opacity .3s;
 }
 .footer-social {
-  display: inline-block;
   position: relative;
   box-sizing: border-box;
   vertical-align: bottom;
@@ -463,51 +351,8 @@ XX-Large devices (larger desktops, 1400px and up)
 
 /* @media (min-width: 576px) */
 @media (min-width: 576px) {
-  .header-image-container {
-    position: relative;
-    margin-top: 14px;
-    z-index: 10;
-    transform: translate(0, 0);
-    transition: transform .3s;
-    transform: scale(0.7);
-    transform-origin: top center;
-    left: 0;
-    top: -8px;
-  }
-  .hero {
-    height: 316px;
-  }
-  .hero-img-container {
-    height: 100%;
-    padding-top: 70px;
-  }
-  .hero img {
-    width: auto;
-    height: 100%;
-  }
-
-  /* .beautyful {
-    min-height: 0;
-  } */
-  
-  .WaveBg {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    margin-left: 0;
-    left: 0;
-  }
-  
-  .yellowWavyBg {
-    display: block;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    color: #f9e600;
-  }
-  
   .beautyful .bubbles1 {
-    top: 7%;
+    top: 0;
     left: 26%;
     margin-left: 0;
   }
@@ -516,81 +361,17 @@ XX-Large devices (larger desktops, 1400px and up)
     bottom: 9%;
     margin-left: 0;
   }
-  
-  svg.bubbles {
+  .bubbles {
       left: 43%;
       bottom: 9%;
       margin-left: 0;
   }
 }
 
-/* @media (min-width: 768px) */
-@media (min-width: 768px) {
-  .header-image-container {
-    left: 0;
-    top: -8px;
-    margin: 8px auto 18px;
-    transform: scale(0.7);
-    transform-origin: top center;
-  }
-  .hero {
-    height: 270px;
-  }
-  .hero-img-container {
-    padding-top: 0;
-    padding-bottom: 0;
-    height: auto;
-  }
-  .hero img {
-    position: absolute;
-    left: 50%;
-    width: auto;
-    height: 270px;
-    margin-left: 0;
-    transform: translate(-50%, 0);
+/* @media (min-width: 992px) */
+@media (min-width: 992px) {
+  body {
+    max-width: 1920px;
+    margin: 0 auto;
   }
 }
-
-
-/* @media (min-width: 992px) */
-/* @media (max-width: 992px) {
-} */
-/* @media (min-width: 1200px) */
-/* @media (max-width: 1200px) {
-  .beautyful {
-    position: relative;
-    margin-bottom: 25px;
-    padding-bottom: 0;
-    z-index: 8;
-    width: 100%;
-    height: auto;
-    min-height: 0;
-    text-align: center;
-  }
-  
-  .WaveBg {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    margin-left: 0;
-    left: 0;
-  }
-  
-  .yellowWavyBg {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    color: #f9e600;
-  }
-  
-  svg.bubbles {
-    position: absolute;
-    width: 54px;
-    height: auto;
-    overflow: hidden;
-  }
-} */
