@@ -20,7 +20,9 @@ html, body {
   overflow-x: hidden;
 }
 body {
+  margin: 0 auto;
   -webkit-font-smoothing: antialiased;
+  max-width: 1920px;
   min-height: 100vh;
 }
 a {
@@ -108,29 +110,27 @@ main {
   margin: 1rem auto 0;
   text-align: center;
 }
-.marque-title {
+.marque-head h1 {
   font-family: "Poppins", sans-serif;
   text-transform: uppercase;
   text-align: center;
-  font-size: 2.5rem;
-  line-height: 3.75rem;
+  font-size: 2rem;
+  line-height: 2.8rem;
   font-weight: 700;
   color: #e62c1c;
 }
 .marque-head h2 {
   font-family: "Pacifico", sans-serif;
   text-align: center;
-  font-size: 2rem;
-  line-height: 3rem;
+  font-size: 1.7rem;
+  line-height: 2.5rem;
   font-weight: normal;
   transform: rotate(-4deg);
   transform-origin: center;
 }
 .marque-head svg {
+  width: 210px;
   margin: 0.5rem auto;
-  text-align: center;
-  font-size: 2.5rem;
-  font-weight: normal;
 }
 
 /* jokes */
@@ -140,7 +140,6 @@ main {
   width: 100%;
 }
 .dbOutput {
-  margin: 1rem auto;
   padding: 1rem;
   text-align: center;
 }
@@ -148,7 +147,7 @@ main {
   margin-top: 1rem;
 }
 .random-joke .cta {
-  margin: auto;
+  margin-top: 1rem;
   text-align: center;
 }
 .random-joke .cta button {
@@ -182,7 +181,7 @@ main {
 .yellowWavyBg {
   display: block;
   width: 100%;
-  height: 692px;
+  height: 220px;
   color: #f9e600;
 }
 
@@ -215,57 +214,16 @@ main {
   width: 250px;
   height: auto;
   vertical-align: middle;
-  margin-left: -1px;
   border: 0;
   transition: opacity .3s;
 }
 
 .floating-carambarStandup {
-  position: absolute;
-  width: 200px;
-  height: 390px;
-  top: 104px;
-  margin-left: -800px;
-  left: 50%;
-  white-space: nowrap;
-  text-align: center;
-  font-size: 0;
-  opacity: 1;
-  transform: translate(0, 0);
-  transition: opacity 1s, transform 1s;
-  pointer-events: none;
-}
-.floating-carambarStandup img {
-  width: 100%;
-  height: auto;
-  vertical-align: middle;
-  margin-left: -1px;
-  border: 0;
-  transition: opacity .3s;
+  display: none;
 }
 
 .floating-fireworks {
-  position: absolute;
-  width: 200px;
-  height: 240px;
-  top: 118px;
-  margin-left: 600px;
-  left: 50%;
-  white-space: nowrap;
-  text-align: center;
-  font-size: 0;
-  opacity: 1;
-  transform: translate(0, 0);
-  transition: opacity 1s, transform 1s;
-  pointer-events: none;
-}
-.floating-fireworks img {
-  width: 100%;
-  height: auto;
-  vertical-align: middle;
-  margin-left: -1px;
-  border: 0;
-  transition: opacity .3s;
+  display: none;
 }
 
 /* footer */
@@ -351,6 +309,34 @@ XX-Large devices (larger desktops, 1400px and up)
 
 /* @media (min-width: 576px) */
 @media (min-width: 576px) {
+  header a img {
+    width: 280px;  
+  }
+
+  .marque-head h1 {
+    font-size: 2.5rem;
+    line-height: 3.75rem;
+  }
+  .marque-head h2 {
+    font-size: 2rem;
+    line-height: 3rem;
+  }
+  .marque-head svg {
+    width: 100%;
+  }
+
+  #getJoke {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+  }
+  #getJokeAnswer {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+  }
+
+  .yellowWavyBg {
+    height: 692px;
+  }
   .beautyful .bubbles1 {
     top: 0;
     left: 26%;
@@ -370,8 +356,62 @@ XX-Large devices (larger desktops, 1400px and up)
 
 /* @media (min-width: 992px) */
 @media (min-width: 992px) {
-  body {
-    max-width: 1920px;
-    margin: 0 auto;
+  header a img {
+    width: 330px;  
+  }
+
+  .hero-img {
+    padding-top: 0;
+  }
+
+  .floating-carambarLayered img {
+    width: 330px;
+  }
+
+  .footer-logo a img {
+    width: 330px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .floating-carambarStandup {
+    display: block;
+    position: absolute;
+    width: 200px;
+    height: 390px;
+    top: 104px;
+    margin-left: -800px;
+    left: 50%;
+    white-space: nowrap;
+    text-align: center;
+    font-size: 0;
+    opacity: 1;
+    transform: translate(0, 0);
+    transition: opacity 1s, transform 1s;
+    pointer-events: none;
+  }
+  .floating-carambarStandup img {
+    width: 100%;
+    height: auto;
+    vertical-align: middle;
+    border: 0;
+  }
+
+  .floating-fireworks {
+    display: block;
+    position: absolute;
+    width: 200px;
+    height: 240px;
+    top: 118px;
+    margin-left: 600px;
+    left: 50%;
+    pointer-events: none;
+  }
+  .floating-fireworks img {
+    width: 100%;
+    height: auto;
+    vertical-align: middle;
+    margin-left: -1px;
+    border: 0;
   }
 }
