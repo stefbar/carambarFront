@@ -430,7 +430,7 @@ XX-Large devices (larger desktops, 1400px and up)
 .loader img {
   width: 2rem;
   height: 2rem;
-  animation: rotate-loader 1s infinite;
+  animation: rotate-loader 1s infinite ease-in-out;
 }
 
 /* @keyframes pulse {
@@ -449,9 +449,9 @@ XX-Large devices (larger desktops, 1400px and up)
   0% {
     transform: rotate(0deg);
   }
-  50% {
+  /* 50% {
     transform: rotate(180deg);
-  }
+  } */
   100% {
     transform: rotate(360deg);
   }

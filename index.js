@@ -26,37 +26,37 @@ function throttle(mainFunction, delay) {
 }
   async function fetchRandomJoke() {
       loader.style.display = 'flex'
-      try {
-          const response = await fetch("https://api-carambarjokes.onrender.com/api.carambarJokes/v1.0.0/random-joke/:randomId")
-          const data = await response.json()
-          const jokeCategory = data.category_id
-          document.getElementById("getJoke").innerHTML = data.joke
-          document.getElementById("getJokeAnswer").innerHTML = ""
-          jokeCategory === 2 ? setTimeout(() => {
-              document.getElementById("getJokeAnswer").innerHTML = data.answer
-          }, 4000) : null
-      } catch (error) {
-          console.log(error)
-      } finally {
-          loader.style.display = 'none'
-      }
-  }
-
-    // fetch("https://api-carambarjokes.onrender.com/api.carambarJokes/v1.0.0/random-joke/:randomId")
-    // .then(response => response.json())
-    // .then(data => {
-    //   const jokeCategory = data.category_id;
-    //   document.getElementById("getJoke").innerHTML = data.joke
-    //   document.getElementById("getJokeAnswer").innerHTML = ""
-    //   jokeCategory === 2 ? setTimeout(() => {
-    //     document.getElementById("getJokeAnswer").innerHTML = data.answer
-    //   }, 4000) : null
-    // })
-    // .catch(error => console.log(error))
-    // .finally(() => {
-    //   loader.style.display = 'none'
-    // })
+  //     try {
+  //         const response = await fetch("https://api-carambarjokes.onrender.com/api.carambarJokes/v1.0.0/random-joke/:randomId")
+  //         const data = await response.json()
+  //         const jokeCategory = data.category_id
+  //         document.getElementById("getJoke").innerHTML = data.joke
+  //         document.getElementById("getJokeAnswer").innerHTML = ""
+  //         jokeCategory === 2 ? setTimeout(() => {
+  //             document.getElementById("getJokeAnswer").innerHTML = data.answer
+  //         }, 4000) : null
+  //     } catch (error) {
+  //         console.log(error)
+  //     } finally{() => {
+  //         loader.style.display = 'none'
+  //     }}
   // }
+
+    fetch("https://api-carambarjokes.onrender.com/api.carambarJokes/v1.0.0/random-joke/:randomId")
+    .then(response => response.json())
+    .then(data => {
+      const jokeCategory = data.category_id;
+      document.getElementById("getJoke").innerHTML = data.joke
+      document.getElementById("getJokeAnswer").innerHTML = ""
+      jokeCategory === 2 ? setTimeout(() => {
+        document.getElementById("getJokeAnswer").innerHTML = data.answer
+      }, 4000) : null
+    })
+    .catch(error => console.log(error))
+    .finally(() => {
+      loader.style.display = 'none'
+    })
+  }
   const throttledFetch = throttle(fetchRandomJoke, 4000)
 
   document.getElementById("getRandomJoke-btn").addEventListener('click', throttledFetch)
