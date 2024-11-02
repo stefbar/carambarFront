@@ -37,9 +37,9 @@ function throttle(mainFunction, delay) {
           }, 4000) : null
       } catch (error) {
           console.log(error)
-      } finally{() => {
+      } finally{
           loader.style.display = 'none'
-      }}
+      }
   }
 
   //   fetch("https://api-carambarjokes.onrender.com/api.carambarJokes/v1.0.0/random-joke/:randomId")
