@@ -144,7 +144,30 @@ main {
   text-align: center;
 }
 #getJokeAnswer {
-  margin-top: 1rem;
+  width: 66.6%;
+  margin: 1rem auto;
+}
+.progress-bar-container {
+  width: 66.6%;
+  margin: 1rem auto;
+}
+progress {
+  background-color: #4CAF50;
+  border: 0;
+  height: 18px;
+  border-radius: 9px;
+}
+progress[value]::-webkit-progress-bar {
+  background-color: #4CAF50;
+}
+progress[value]::-moz-progress-bar {
+  background-color: #4CAF50;
+}
+progress[value]::-webkit-progress-value {
+  background-color: #4CAF50;
+}
+progress[value]::-moz-progress-value {
+  background-color: #4CAF50;
 }
 .random-joke .cta {
   margin-top: 1rem;
@@ -433,25 +456,10 @@ XX-Large devices (larger desktops, 1400px and up)
   animation: rotate-loader 1s infinite ease-in-out;
 }
 
-/* @keyframes pulse {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 1;
-  }
-} */
-
 @keyframes rotate-loader {
   0% {
     transform: rotate(0deg);
   }
-  /* 50% {
-    transform: rotate(180deg);
-  } */
   100% {
     transform: rotate(360deg);
   }
