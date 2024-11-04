@@ -7,6 +7,18 @@ window.addEventListener("scroll", (event) => {
   }
 }, true)
 
+// warm up Render's server
+function warmUp() {
+  fetch("https://api-carambarjokes.onrender.com/api.carambarJokes/v1.0.0/random-joke/:randomId")
+  .then(response => {
+    if (response.ok) {
+      console.log('Server is awake')   
+    }
+  })
+  .catch(error => console.log('Error waking up server: ', error))
+}
+document.addEventListener('DOMContentLoaded', warmUp)
+
 // fetching response loader
 const loader = document.getElementById('loader')
 loader.style.display = 'none'
