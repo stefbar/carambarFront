@@ -54,17 +54,17 @@ function throttle(mainFunction, delay) {
   }
 }
   async function fetchRandomJoke() {
-      loader.style.display = 'flex'
-      progressBar.style.display = 'flex'
-      progressBar.style.width = '0%'
-      currentProgress = 0
-
-      if(intervalId) {
-          clearInterval(intervalId)
-      }
-      intervalId = setInterval(updateProgress, 10)
-
-      try {
+    progressBar.style.display = 'flex'
+    progressBar.style.width = '0%'
+    currentProgress = 0
+    
+    if(intervalId) {
+      clearInterval(intervalId)
+    }
+    intervalId = setInterval(updateProgress, 10)
+    
+    try {
+          loader.style.display = 'flex'
           const response = await fetch("https://api-carambarjokes.onrender.com/api.carambarJokes/v1.0.0/random-joke/:randomId")
           const data = await response.json()
           console.log('data: ', data)
