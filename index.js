@@ -7,21 +7,23 @@ window.addEventListener("scroll", (event) => {
   }
 }, true)
 
+// fetching response loader
+const loader = document.getElementById('loader')
+loader.style.display = 'none'
+
 // warm up Render's server
 function warmUp() {
+  loader.style.display = 'flex'
   fetch("https://api-carambarjokes.onrender.com/api.carambarJokes/v1.0.0/random-joke/:randomId")
   .then(response => {
     if (response.ok) {
-      console.log('Server is awake')   
+      console.log('Server is awake')
+      loader.style.display = 'none' 
     }
   })
   .catch(error => console.log('Error waking up server: ', error))
 }
 document.addEventListener('DOMContentLoaded', warmUp)
-
-// fetching response loader
-const loader = document.getElementById('loader')
-loader.style.display = 'none'
 
 // progress bar
 const progressBar = document.getElementById('jokeAnswerComingProgressBar')
@@ -54,6 +56,7 @@ function throttle(mainFunction, delay) {
   }
 }
   async function fetchRandomJoke() {
+    // loader.style.display = 'flex'
     progressBar.style.display = 'flex'
     progressBar.style.width = '0%'
     currentProgress = 0
@@ -64,7 +67,6 @@ function throttle(mainFunction, delay) {
     intervalId = setInterval(updateProgress, 10)
     
     try {
-          loader.style.display = 'flex'
           const response = await fetch("https://api-carambarjokes.onrender.com/api.carambarJokes/v1.0.0/random-joke/:randomId")
           const data = await response.json()
           console.log('data: ', data)
@@ -76,11 +78,13 @@ function throttle(mainFunction, delay) {
           jokeCategory === 2 ? setTimeout(() => {
               document.getElementById("getJokeAnswer").innerHTML = data.answer
           }, 4000) : null
-      } catch (error) {
-          console.log(error)
-      } finally {
-          loader.style.display = 'none'
       }
+        catch (error) {
+          console.log(error)
+      }
+      //   finally {
+      //     loader.style.display = 'none'
+      // }
   }
 
   //   fetch("https://api-carambarjokes.onrender.com/api.carambarJokes/v1.0.0/random-joke/:randomId")
