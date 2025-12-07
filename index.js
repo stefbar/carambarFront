@@ -69,7 +69,7 @@ function throttle(mainFunction, delay) {
     try {
           const response = await fetch("https://api-carambarjokes.onrender.com/api.carambarJokes/v1.0.0/random-joke/:randomId")
           const data = await response.json()
-          console.log('data: ', data)
+          // console.log('data: ', data)
           const jokeCategory = data.category_id
           document.getElementById("getJoke").innerHTML = data.joke
           
@@ -77,7 +77,7 @@ function throttle(mainFunction, delay) {
           document.getElementById("getJokeAnswer").innerHTML = ""
           jokeCategory === 2 ? setTimeout(() => {
               document.getElementById("getJokeAnswer").innerHTML = data.answer
-          }, 4000) : null
+          }, 4000) : progressBar.style.display = 'none'
       }
         catch (error) {
           console.log(error)
