@@ -10,6 +10,8 @@ window.addEventListener("scroll", (event) => {
 // fetching response loader
 const loader = document.getElementById('loader')
 loader.style.display = 'none'
+const getJokeBtn = document.getElementById('getRandomJoke-btn')
+getJokeBtn.style.display = 'none'
 
 // warm up Render's server
 function warmUp() {
@@ -18,7 +20,8 @@ function warmUp() {
   .then(response => {
     if (response.ok) {
       console.log('Server is awake')
-      loader.style.display = 'none' 
+      loader.style.display = 'none'
+      getJokeBtn.style.display = 'inline-block' 
     }
   })
   .catch(error => console.log('Error waking up server: ', error))
