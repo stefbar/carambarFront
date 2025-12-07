@@ -77,7 +77,7 @@ function throttle(mainFunction, delay) {
           document.getElementById("getJokeAnswer").innerHTML = ""
           jokeCategory === 2 ? setTimeout(() => {
               document.getElementById("getJokeAnswer").innerHTML = data.answer
-          }, 4000) : progressBar.style.display = 'none'
+          }, 4000) : null
       }
         catch (error) {
           console.log(error)
